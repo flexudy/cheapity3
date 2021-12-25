@@ -20,7 +20,7 @@ class T5TextGeneratorService(TextGeneratorService):
 
         tokenizer, model = self.__resource_helper.get_tokenizer_and_model()
 
-        inputs = tokenizer.encode(input_text, return_tensors="pt", truncation=True, max_length=self.__MAX_SEQUENCE_LEN)
+        inputs = tokenizer(input_text, return_tensors="pt", truncation=True, max_length=self.__MAX_SEQUENCE_LEN)
 
         input_ids = inputs["input_ids"]
 
@@ -52,4 +52,4 @@ class T5TextGeneratorService(TextGeneratorService):
     def __preprocess_text(self, from_text: str, num_words_to_generate: int):
         input_text = from_text + " { " + " ".join(["_"] * num_words_to_generate) + " } "
 
-        return input_text
+        return "guess: " + input_text

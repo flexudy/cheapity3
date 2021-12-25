@@ -6,7 +6,7 @@ from cheapity3.resource_management.resource_helper import ResourceHelper
 class TextGeneratorFactory:
 
     @staticmethod
-    def get_text_generator(model_path: str) -> TextGenerator:
+    def get_text_generator(model_path: str = "flexudy/cheapity3") -> TextGenerator:
         resource_helper = ResourceHelper(model_path)
 
         text_generator_service = T5TextGeneratorService(resource_helper)
